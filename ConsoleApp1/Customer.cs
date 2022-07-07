@@ -2,28 +2,23 @@
 
 namespace ConsoleApp1
 {
-
-    public class Customer
+    public sealed class Customer
     {
-        public int Id;
-        public string Name;
-        public List<Order> Orders;
-
-        public Customer()
+        public Customer(int id, string name, IList<Order> order)
         {
+            Name = name;
+            Id = id;
             Orders = new List<Order>();
         }
-        //redundat constructors as they really don't need
-        //initialization
-        //call previous constructor and set Id 
-        public Customer(int id) : this()
+        public Customer(int id, string name, Order order)
         {
-            this.Id = id;
+            Name = name;
+            Id = id;
+            Orders = new List<Order>() { order };
         }
-        //call previous constructor and set name
-        public Customer(int id, string name) : this(id)
-        {
-            this.Name = name;
-        }
+
+        public int Id { get; }
+        public string Name { get; }
+        public List<Order> Orders { get; }
     }
 }

@@ -6,13 +6,17 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            var customer = new Customer(1, "Rob");
-
-            var order = new Order();
-            customer.Orders.Add(order);
+            var order = new Order("test");
+            var customer = new Customer(1, "Rob", order);
 
             Console.WriteLine(customer.Id);
             Console.WriteLine(customer.Name);
+
+            customer.Orders.Add(new Order("test 2"));
+            foreach (var item in customer.Orders)
+            {
+                Console.WriteLine(item.Name);
+            }
         }
     }
 }
