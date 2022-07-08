@@ -5,7 +5,10 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-
+            int num;
+            var numParsed = int.TryParse("abc", out num);
+            string result = numParsed ? num.ToString() : "Conversion failed";
+            Console.WriteLine(result);
         }
 
         static void UseParams()
